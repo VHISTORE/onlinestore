@@ -1,8 +1,9 @@
+const carousel = document.querySelector('.carousel');
 let isDown = false;
 let startX;
 let scrollLeft;
-const carousel = document.querySelector('.carousel');
 
+// Функция начала перетаскивания
 carousel.addEventListener('mousedown', (e) => {
     isDown = true;
     carousel.style.cursor = 'grabbing';
@@ -10,16 +11,19 @@ carousel.addEventListener('mousedown', (e) => {
     scrollLeft = carousel.scrollLeft;
 });
 
-carousel.addEventListener('mouseleave', () => {
-    isDown = false;
-    carousel.style.cursor = 'grab';
-});
-
+// Функция окончания перетаскивания
 carousel.addEventListener('mouseup', () => {
     isDown = false;
     carousel.style.cursor = 'grab';
 });
 
+// Функция, когда мышь покидает область карусели
+carousel.addEventListener('mouseleave', () => {
+    isDown = false;
+    carousel.style.cursor = 'grab';
+});
+
+// Функция движения мыши
 carousel.addEventListener('mousemove', (e) => {
     if (!isDown) return;
     e.preventDefault();
@@ -28,7 +32,7 @@ carousel.addEventListener('mousemove', (e) => {
     carousel.scrollLeft = scrollLeft - walk;
 });
 
-// Для мобильных устройств
+// Для мобильных устройств (перетаскивание по экрану)
 carousel.addEventListener('touchstart', (e) => {
     isDown = true;
     carousel.style.cursor = 'grabbing';
@@ -48,3 +52,4 @@ carousel.addEventListener('touchmove', (e) => {
     const walk = (x - startX) * 3; // Ускорение прокрутки
     carousel.scrollLeft = scrollLeft - walk;
 });
+
