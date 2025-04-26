@@ -4,9 +4,9 @@ const totalItems = items.length;
 
 function moveCarousel() {
     const carousel = document.querySelector('.carousel');
-    index = (index + 1) % totalItems;  // Циклическая прокрутка
+    index = (index + 1) % totalItems;  // Цикличная прокрутка
 
-    // Прокрутка карусели влево
+    // Прокрутка карусели вправо
     carousel.style.transform = `translateX(-${index * 320}px)`; // Ширина элемента + отступ
 }
 
