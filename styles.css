@@ -51,8 +51,8 @@ body {
 .carousel {
     display: flex;
     gap: 20px;
-    transition: transform 0.3s ease-in-out;
     cursor: grab; /* Добавляем курсор, показывающий возможность перетаскивания */
+    user-select: none; /* Чтобы нельзя было выделить текст при прокрутке */
 }
 
 .carousel-item {
