@@ -1,22 +1,32 @@
 document.addEventListener('DOMContentLoaded', function() {
   const carousel = document.querySelector('.products-carousel');
-  let startX, endX;
+  const products = document.querySelectorAll('.product img');
+  const modal = document.getElementById('productModal');
+  const modalTitle = document.getElementById('modalTitle');
+  const modalDescription = document.getElementById('modalDescription');
+  const closeModal = document.querySelector('.close');
 
-  // Обработчик начала свайпа
-  carousel.addEventListener('touchstart', function(event) {
-    startX = event.touches[0].clientX;
+  // Открытие модального окна
+  products.forEach(img => {
+    img.addEventListener('click', function() {
+      const parent = img.parentElement;
+      const title = parent.getAttribute('data-title');
+      const description = parent.getAttribute('data-description');
+      
+      modalTitle.textContent = title;
+      modalDescription.textContent = description;
+      modal.style.display = "block";
+    });
   });
 
-  // Обработчик окончания свайпа
-  carousel.addEventListener('touchend', function(event) {
-    endX = event.changedTouches[0].clientX;
+  // Закрытие модального окна
+  closeModal.addEventListener('click', function() {
+    modal.style.display = "none";
+  });
 
-    if (startX > endX) {
-      // Свайп влево
-      carousel.style.transform = `translateX(-${carousel.offsetWidth / 3}px)`;
-    } else if (startX < endX) {
-      // Свайп вправо
-      carousel.style.transform = `translateX(${carousel.offsetWidth / 3}px)`;
+  window.addEventListener('click', function(event) {
+    if (event.target == modal) {
+      modal.style.display = "none";
     }
   });
 });
