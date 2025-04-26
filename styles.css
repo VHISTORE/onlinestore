@@ -45,13 +45,14 @@ body {
     justify-content: center;
     position: relative;
     overflow: hidden; /* Скрывает ненужные элементы */
+    width: 100%; /* Полная ширина для адаптивности */
 }
 
 .carousel {
     display: flex;
     gap: 20px;
-    transition: transform 0.5s ease-in-out;
-    width: 100%;
+    transition: transform 0.3s ease-in-out;
+    cursor: grab; /* Добавляем курсор, показывающий возможность перетаскивания */
 }
 
 .carousel-item {
