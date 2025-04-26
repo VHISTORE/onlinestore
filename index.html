@@ -10,7 +10,7 @@
 
   <header class="header">
     <div class="logo">
-      <img src="https://via.placeholder.com/120x60?text=Логотип" alt="Логотип магазина">
+      <div class="gradient-background">Логотип</div>
     </div>
     <nav class="navbar">
       <ul>
@@ -26,35 +26,29 @@
     <div class="products-wrapper">
       <div class="products-carousel">
         
-        <div class="product" onclick="openModal('Яблоки', 'Свежие, вкусные яблоки.')">
-          <img src="https://via.placeholder.com/220x150?text=Яблоки" alt="Яблоки">
-          <h3>Яблоки</h3>
-          <button onclick="addToCart(event)">Добавить в корзину</button>
+        <div class="product">
+          <div class="gradient-background">Товар 1</div>
         </div>
 
-        <div class="product" onclick="openModal('Бананы', 'Спелые бананы с плантаций.')">
-          <img src="https://via.placeholder.com/220x150?text=Бананы" alt="Бананы">
-          <h3>Бананы</h3>
-          <button onclick="addToCart(event)">Добавить в корзину</button>
+        <div class="product">
+          <div class="gradient-background">Товар 2</div>
         </div>
 
-        <div class="product" onclick="openModal('Помидоры', 'Сочные красные помидоры.')">
-          <img src="https://via.placeholder.com/220x150?text=Помидоры" alt="Помидоры">
-          <h3>Помидоры</h3>
-          <button onclick="addToCart(event)">Добавить в корзину</button>
+        <div class="product">
+          <div class="gradient-background">Товар 3</div>
+        </div>
+
+        <div class="product">
+          <div class="gradient-background">Товар 4</div>
+        </div>
+
+        <div class="product">
+          <div class="gradient-background">Товар 5</div>
         </div>
 
       </div>
     </div>
   </section>
-
-  <div id="modal" class="modal">
-    <div class="modal-content">
-      <span class="close" onclick="closeModal()">&times;</span>
-      <h2 id="modal-title"></h2>
-      <p id="modal-description"></p>
-    </div>
-  </div>
 
   <script src="script.js"></script>
 </body>
