@@ -4,11 +4,14 @@ body {
   font-family: 'Arial', sans-serif;
   background: linear-gradient(135deg, #ff4e50, #f9d423); /* Градиентный фон */
   min-height: 100vh;
+  background-size: cover; /* Нужно, чтобы фон растягивался */
+  background-attachment: fixed; /* Фон фиксируется при прокрутке */
+  color: white; /* Сделаем текст белым по умолчанию */
 }
 
 /* Шапка сайта */
 .site-header {
-  background-color: black; /* Можно поменять на red если захочешь */
+  background-color: black; /* Или red, если нужно */
   padding: 15px 20px;
 }
 
@@ -21,7 +24,7 @@ body {
 .nav-placeholder {
   width: 100px; /* Место под логотип */
   height: 40px;
-  background-color: black; /* или red */
+  background-color: black; /* Или red */
 }
 
 /* Меню навигации */
