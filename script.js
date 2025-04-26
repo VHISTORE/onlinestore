@@ -1,15 +1,50 @@
-let index = 0;
-const items = document.querySelectorAll('.carousel-item');
-const totalItems = items.length;
+let isDown = false;
+let startX;
+let scrollLeft;
+const carousel = document.querySelector('.carousel');
 
-function moveCarousel() {
-    const carousel = document.querySelector('.carousel');
-    index = (index + 1) % totalItems;  // Цикличная прокрутка
+carousel.addEventListener('mousedown', (e) => {
+    isDown = true;
+    carousel.style.cursor = 'grabbing';
+    startX = e.pageX - carousel.offsetLeft;
+    scrollLeft = carousel.scrollLeft;
+});
 
-    // Прокрутка карусели вправо
-    carousel.style.transform = `translateX(-${index * 320}px)`; // Ширина элемента + отступ
-}
+carousel.addEventListener('mouseleave', () => {
+    isDown = false;
+    carousel.style.cursor = 'grab';
+});
 
-// Плавная прокрутка карусели каждые 3 секунды
-setInterval(moveCarousel, 3000);  // 3000 мс (3 секунды)
+carousel.addEventListener('mouseup', () => {
+    isDown = false;
+    carousel.style.cursor = 'grab';
+});
 
+carousel.addEventListener('mousemove', (e) => {
+    if (!isDown) return;
+    e.preventDefault();
+    const x = e.pageX - carousel.offsetLeft;
+    const walk = (x - startX) * 3; // Ускорение прокрутки
+    carousel.scrollLeft = scrollLeft - walk;
+});
+
+// Для мобильных устройств
+carousel.addEventListener('touchstart', (e) => {
+    isDown = true;
+    carousel.style.cursor = 'grabbing';
+    startX = e.touches[0].pageX - carousel.offsetLeft;
+    scrollLeft = carousel.scrollLeft;
+});
+
+carousel.addEventListener('touchend', () => {
+    isDown = false;
+    carousel.style.cursor = 'grab';
+});
+
+carousel.addEventListener('touchmove', (e) => {
+    if (!isDown) return;
+    e.preventDefault();
+    const x = e.touches[0].pageX - carousel.offsetLeft;
+    const walk = (x - startX) * 3; // Ускорение прокрутки
+    carousel.scrollLeft = scrollLeft - walk;
+});
