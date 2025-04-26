@@ -46,6 +46,7 @@ body {
     position: relative;
     overflow: hidden; /* Скрывает ненужные элементы */
     width: 100%; /* Полная ширина для адаптивности */
+    padding: 20px 0; /* Добавляем немного отступов для красивого отображения */
 }
 
 .carousel {
@@ -53,12 +54,14 @@ body {
     gap: 20px;
     cursor: grab; /* Добавляем курсор, показывающий возможность перетаскивания */
     user-select: none; /* Чтобы нельзя было выделить текст при прокрутке */
+    transition: transform 0.3s ease; /* Плавная прокрутка */
 }
 
 .carousel-item {
-    min-width: 300px;
+    min-width: 250px; /* Поменял на меньший размер для удобства */
     text-align: center;
     flex-shrink: 0;
+    transition: transform 0.3s ease;
 }
 
 .carousel img {
@@ -69,10 +72,11 @@ body {
 /* Адаптивность */
 @media (max-width: 768px) {
     .carousel-container {
-        flex-direction: column;
+        width: 100%; /* Полная ширина на мобильных устройствах */
     }
 
-    .carousel {
-        flex-direction: column;
+    .carousel-item {
+        min-width: 200px; /* Меньшие товары для мобильных устройств */
     }
 }
+
