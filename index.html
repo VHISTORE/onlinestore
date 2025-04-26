@@ -1,100 +1,48 @@
 <!DOCTYPE html>
 <html lang="ru">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Мой сайт</title>
-  <style>
-    /* Встроенный CSS */
-    body {
-      margin: 0;
-      font-family: 'Arial', sans-serif;
-      background: linear-gradient(135deg, #ff4e50, #f9d423); /* Градиент */
-      min-height: 100vh;
-      background-size: cover;
-      background-attachment: fixed;
-      color: white;
-    }
-
-    /* Шапка сайта */
-    .site-header {
-      background-color: black; /* Или можно red */
-      padding: 15px 20px;
-    }
-
-    .nav-container {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .nav-placeholder {
-      width: 100px;
-      height: 40px;
-      background-color: black; /* Можно поменять на красный */
-    }
-
-    .nav-menu {
-      list-style: none;
-      display: flex;
-      gap: 20px;
-      margin: 0;
-      padding: 0;
-    }
-
-    .nav-menu li a {
-      text-decoration: none;
-      color: white;
-      font-weight: bold;
-      transition: color 0.3s ease;
-    }
-
-    .nav-menu li a:hover {
-      color: #f9d423;
-    }
-
-    .main-content {
-      text-align: center;
-      padding: 100px 20px;
-    }
-
-    /* Адаптивность */
-    @media (max-width: 768px) {
-      .nav-container {
-        flex-direction: column;
-      }
-
-      .nav-menu {
-        flex-direction: column;
-        align-items: center;
-        margin-top: 10px;
-      }
-
-      .nav-placeholder {
-        margin-bottom: 10px;
-      }
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Магазин</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
 
-  <header class="site-header">
-    <nav class="nav-container">
-      <div class="nav-placeholder"></div>
-      <ul class="nav-menu">
-        <li><a href="#">Главная</a></li>
-        <li><a href="#">Профиль</a></li>
-        <li><a href="#">О нас</a></li>
-        <li><a href="#">Контакты</a></li>
-      </ul>
-    </nav>
-  </header>
+    <header class="site-header">
+        <nav class="nav-container">
+            <div class="nav-left">
+                <a href="#" class="logo">Магазин</a>
+            </div>
+            <div class="nav-right">
+                <input type="text" id="search" placeholder="Поиск товаров...">
+                <a href="#" class="profile">Личный кабинет</a>
+                <a href="#" class="cart">Корзина</a>
+            </div>
+        </nav>
+    </header>
 
-  <main class="main-content">
-    <h1>Добро пожаловать!</h1>
-    <p>Это стартовая страница.</p>
-  </main>
+    <main class="main-content">
+        <h1>Топовые товары</h1>
+        <div class="carousel">
+            <div class="carousel-item active">
+                <img src="https://via.placeholder.com/300x200" alt="Товар 1">
+                <p>Товар 1</p>
+            </div>
+            <div class="carousel-item">
+                <img src="https://via.placeholder.com/300x200" alt="Товар 2">
+                <p>Товар 2</p>
+            </div>
+            <div class="carousel-item">
+                <img src="https://via.placeholder.com/300x200" alt="Товар 3">
+                <p>Товар 3</p>
+            </div>
+        </div>
+    </main>
 
+    <script src="script.js"></script>
 </body>
+
 </html>
+
